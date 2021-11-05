@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="titlesNotes">
+        <item>Вчера</item>
+        <item>Сегодня</item>
+        <item>Завтра</item>
+    </string-array>
+</resources>
