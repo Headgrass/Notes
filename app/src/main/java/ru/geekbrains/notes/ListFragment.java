@@ -30,12 +30,29 @@ public class ListFragment extends Fragment {
     private void initView(View view) {
         LinearLayout linearLayout = (LinearLayout) view;
         String[] notesList = getResources().getStringArray(R.array.titlesNotes);
-        TextView list = view.findViewById(R.id.Listen);
 
-        for (String title : notesList) {
-            list.setText(title);
-            linearLayout.addView(list);
+        for (int i = 0; i < notesList.length; i++) {
+            String title = notesList[i];
+            TextView textView = new TextView(getContext());
+
+            textView.setText(title);
+            textView.setTextSize(30);
+            textView.setTextColor(Color.BLACK);
+            
+            final int position = i;
+            textView.setOnClickListener(v -> {
+                showNote(position);
+            });
+          linearLayout.addView(textView);
         }
+    }
+
+    private void showNote(int position) {
+        NoteFragment noteFragment = NoteFragment.newInstance(position);
+        requireActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.noteFragment, noteFragment)
+                .commit();
     }
 
     @Override
@@ -48,6 +65,6 @@ public class ListFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initView(view);
+       initView(view);
     }
 }
