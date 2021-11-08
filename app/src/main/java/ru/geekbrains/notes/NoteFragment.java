@@ -13,11 +13,13 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.Objects;
+
 public class NoteFragment extends Fragment {
 
     private static final String ARG_POSITION = "ARG_POSITION";
 
-    private int position = -1;
+    int position = -1;
 
     public NoteFragment() {
 
@@ -35,20 +37,21 @@ public class NoteFragment extends Fragment {
     public static NoteFragment newInstance(int position) {
         NoteFragment noteFragment = new NoteFragment();
         Bundle args = new Bundle();
-        args.putInt(ARG_POSITION, position);
         noteFragment.setArguments(args);
         return noteFragment;
     }
 
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initView(position);
+      initView(position);
     }
 
     private void initView(int position) {
 
-        TextView textView = getActivity().findViewById(R.id.noteFragment);
+
+        TextView textView = requireActivity().findViewById(R.id.note_fragment);
 
         textView.setText(position);
 

@@ -51,7 +51,7 @@ public class ListFragment extends Fragment {
         NoteFragment noteFragment = NoteFragment.newInstance(position);
         requireActivity().getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.noteFragment, noteFragment)
+                .add(R.id.note_fragment, noteFragment)
                 .commit();
     }
 

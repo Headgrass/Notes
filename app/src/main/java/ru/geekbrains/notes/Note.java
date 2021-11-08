@@ -1,6 +1,9 @@
 package ru.geekbrains.notes;
 
-public class Note {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Note implements Parcelable {
     String dateNote;
     String titleNote;
     String bodyNote;
@@ -11,27 +14,33 @@ public class Note {
         this.bodyNote = bodyNote;
     }
 
-    public String getDateNote() {
-        return dateNote;
+    protected Note(Parcel in) {
+        dateNote = in.readString();
+        titleNote = in.readString();
+        bodyNote = in.readString();
     }
 
-    public void setDateNote(String dateNote) {
-        this.dateNote = dateNote;
+    public static final Creator<Note> CREATOR = new Creator<Note>() {
+        @Override
+        public Note createFromParcel(Parcel in) {
+            return new Note(in);
+        }
+
+        @Override
+        public Note[] newArray(int size) {
+            return new Note[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
-    public String getTitleNote() {
-        return titleNote;
-    }
-
-    public void setTitleNote(String titleNote) {
-        this.titleNote = titleNote;
-    }
-
-    public String getBodyNote() {
-        return bodyNote;
-    }
-
-    public void setBodyNote(String bodyNote) {
-        this.bodyNote = bodyNote;
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(dateNote);
+        parcel.writeString(titleNote);
+        parcel.writeString(bodyNote);
     }
 }
