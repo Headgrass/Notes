@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    android:orientation="vertical"
     tools:context=".NoteFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/tv_notesTitle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:text="Название заметки"
+        android:textAlignment="center"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tv_notesBody"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Тело заметки"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_notesDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="дата создания"
+        android:textAlignment="textStart"
+        android:textSize="11sp" />
+
 
 </LinearLayout>

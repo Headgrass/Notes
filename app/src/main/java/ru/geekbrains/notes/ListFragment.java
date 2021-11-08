@@ -30,11 +30,12 @@ public class ListFragment extends Fragment {
     private void initView(View view) {
         LinearLayout linearLayout = (LinearLayout) view;
         String[] notesList = getResources().getStringArray(R.array.titlesNotes);
-        TextView list = view.findViewById(R.id.Listen);
 
-        for (String title : notesList) {
-            list.setText(title);
-            linearLayout.addView(list);
+        for (int i=0;i< notesList.length;i++) {
+            TextView textView = new TextView(getContext());
+            textView.setText(notesList[i]);
+            textView.setTextSize(30);
+            linearLayout.addView(textView);
         }
     }
 
