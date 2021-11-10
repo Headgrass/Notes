@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.provider.SyncStateContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +16,7 @@ import android.widget.TextView;
 
 import java.util.Objects;
 
-public class NoteFragment extends Fragment {
+public class NoteFragment extends Fragment implements Constants {
 
     private static final String ARG_POSITION = "ARG_POSITION";
 
@@ -51,9 +52,9 @@ public class NoteFragment extends Fragment {
     private void initView(int position) {
 
 
-        TextView textView = requireActivity().findViewById(R.id.note_fragment);
+        TextView textView = requireActivity().findViewById(R.id.note_cont);
 
-        textView.setText(position);
+        textView.setText(getString(position));
 
         String[] notesList = getResources().getStringArray(R.array.titlesNotes);
 

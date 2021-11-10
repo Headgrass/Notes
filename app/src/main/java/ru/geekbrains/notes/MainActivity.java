@@ -9,7 +9,6 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    ListFragment listFragment = new ListFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

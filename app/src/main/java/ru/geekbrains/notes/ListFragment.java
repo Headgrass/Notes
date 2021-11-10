@@ -14,7 +14,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class ListFragment extends Fragment {
+public class ListFragment extends Fragment implements Constants {
 
     public ListFragment() {
         // Required empty public constructor
